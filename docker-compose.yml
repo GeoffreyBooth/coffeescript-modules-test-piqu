@@ -1,12 +1,12 @@
 version: '2'
 
 services:
-  piqu: &defaults
+  piqu-original: &defaults
     image: piqu:latest
     build:
       context: .
     volumes:
-      - ./piqu-ember:/myapp
+      - ./piqu-original:/myapp
     ports:
       - "4200:4200"
       - "35729:35729"
