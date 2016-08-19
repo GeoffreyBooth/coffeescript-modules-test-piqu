@@ -1,0 +1,73 @@
+<div id="app-container">
+  <nav class="top-bar" data-top-bar>
+    <ul class="title-area">
+      <li class="name">
+        <h1>
+          {{#link-to 'index'}}
+            PIQU
+          {{/link-to}}
+        </h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        {{#if session.isAuthenticated}}
+          <li>
+            {{#link-to 'income' }}Income{{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'expenses' }}Expenses{{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'configuration' }}Configuration{{/link-to}}
+          </li>
+          <li>
+            <a {{action 'invalidateSession'}}>Logout</a>
+          </li>
+        {{/if}}
+      </ul>
+    </section>
+  </nav>
+
+  <div id="main-row" class="row">
+    <div id="main" class="small-12 columns">
+      {{#if session.isAuthenticated}}
+        {{outlet}}
+      {{else}}
+        <h1 id="title" class="text-center">Welcome to Piqu</h1>
+
+        <div class="small-4 small-offset-1 columns">
+          <h2 class="text-center">Login</h2>
+          {{render 'login'}}
+        </div>
+
+        <div class="small-4 small-offset-1 columns end">
+          <h2 class="text-center">Sign Up!</h2>
+          <form {{action 'createUser' on='submit'}}>
+            <label for="registration-email">Email
+            {{input value=email placeholder='Enter Login' id="registration-email"}}
+            {{#if errors.email}}
+              <small class="error">{{errors.email}}</small>
+            {{/if}}
+            </label>
+
+            <label for="registration-password">Password</label>
+            {{input value=password placeholder='Enter Password' type='password' id="registration-password"}}
+            {{#if errors.password}}
+              <small class="error">{{errors.password}}</small>
+            {{/if}}
+
+            <label for="confirmation-password">Password confirmation</label>
+            {{input value=passwordConfirmation placeholder='Confirm Password' type='password' id="confirmation-password"}}
+            {{#if errors.passwordConfirmation}}
+              <small class="error">{{errors.passwordConfirmation}}</small>
+            {{/if}}
+
+            <button type="submit">Sign Up!</button>
+          </form>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

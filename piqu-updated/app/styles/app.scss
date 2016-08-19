@@ -1,0 +1,45 @@
+@import "bower_components/foundation/scss/normalize.scss";
+@import "bower_components/foundation/scss/foundation.scss";
+
+nav.top-bar ul li a.ember-view.active {
+  background: $topbar-link-bg-active;
+  color: $topbar-link-color-active;
+
+  &:hover {
+    background: $topbar-link-bg-active-hover;
+    color: $topbar-link-color-active-hover;
+  }
+}
+
+.balance-result {
+  font-size: 3rem;
+}
+
+input + small.error {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.sub-header a {
+  margin: 0.75rem 0 0 1rem;
+}
+
+input#emitted-at, input#paid-at {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  @include form-element;
+  @if $input-include-glowing-effect == false {
+      @include single-transition(all, 0.15s, linear);
+  }
+  &.radius {
+    @include radius($input-border-radius);
+  }
+}
+
+table {
+  width: 100%;
+}
+
+#invoice-pdf-modal {
+  height: 90%;
+}

@@ -1,0 +1,44 @@
+<div class="small-5 columns">
+  <label for="concept">Concept</label>
+  {{input value=concept}}
+  {{#each error in errors.concept}}
+    <small class="error">{{error.message}}</small>
+  {{/each}}
+</div>
+
+<div class="small-2 columns">
+  <label for="unitPrice">Unit price</label>
+  {{input value=unitPrice}}
+  {{#each error in errors.unitPrice}}
+    <small class="error">{{error.message}}</small>
+  {{/each}}
+</div>
+
+<div class="small-1 columns">
+  <label for="quantity">Quantity</label>
+  {{input value=quantity type="number"}}
+  {{#each error in errors.quantity}}
+    <small class="error">{{error.message}}</small>
+  {{/each}}
+</div>
+
+<div class="small-1 columns">
+  <label for="vat-percent">VAT %</label>
+  {{input value=vatPercentage}}
+  {{#each error in errors.vatPercentage}}
+    <small class="error">{{error.message}}</small>
+  {{/each}}
+</div>
+
+<div class="small-1 columns">
+  <label for="irpf-percentage">IRPF %</label>
+  {{input value=irpfPercentage}}
+  {{#each error in errors.irpfPercentage}}
+    <small class="error">{{error.message}}</small>
+  {{/each}}
+</div>
+
+<div class="small-2 columns">
+  <label>.</label>
+  <button {{action 'destroy' this}} class="small alert">Delete</button>
+</div>

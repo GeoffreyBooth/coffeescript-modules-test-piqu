@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  piqu-original: &defaults
+  piqu-original: &original
     image: piqu:latest
     build:
       context: .
@@ -11,17 +11,43 @@ services:
       - "4200:4200"
       - "35729:35729"
 
+  piqu-updated: &updated
+    image: piqu:latest
+    build:
+      context: .
+    volumes:
+      - ./piqu-updated:/myapp
+    ports:
+      - "4200:4200"
+      - "35729:35729"
 
-  npm:
-    <<: *defaults
+
+  npm-original:
+    <<: *original
     entrypoint: ['/usr/local/bin/npm']
 
-  bower:
-    <<: *defaults
+  bower-original:
+    <<: *original
     entrypoint: ['/usr/local/bin/bower', '--allow-root']
 
-  server:
-    <<: *defaults
+  server-original:
+    <<: *original
+    command: server --watcher polling
+    ports:
+      - "4200:4200"
+      - "35729:35729"
+
+
+  npm-updated:
+    <<: *updated
+    entrypoint: ['/usr/local/bin/npm']
+
+  bower-updated:
+    <<: *updated
+    entrypoint: ['/usr/local/bin/bower', '--allow-root']
+
+  server-updated:
+    <<: *updated
     command: server --watcher polling
     ports:
       - "4200:4200"

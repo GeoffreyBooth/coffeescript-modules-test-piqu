@@ -1,0 +1,11 @@
+<fieldset>
+  <legend>Items</legend>
+  {{#each item in items}}
+    {{#unless item.isDeleted}}
+      <div class="row">
+        {{render 'item-fields' item}}
+      </div>
+    {{/unless}}
+  {{/each}}
+  <button {{action 'addItem'}} class="small">Add Item</button>
+</fieldset>

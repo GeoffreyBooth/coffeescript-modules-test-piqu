@@ -1,0 +1,48 @@
+<h1>{{title}}</h1>
+
+<form {{action 'createBillingDocument' on='submit'}}>
+  <div class="row">
+    <div class="small-2 columns">
+      <label for="number">Ticket number</label>
+      {{input value=number id="number" size="4" type="number" min="1"}}
+      {{#each error in errors.number}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-2 columns">
+      <label for="emitted-at">Emitted at</label>
+      {{pikaday-input value=emittedAt id="emitted-at"}}
+      {{#each error in errors.emittedAt}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+    </div>
+
+    <div class="small-2 columns end">
+      <label for="paid-at">Paid at</label>
+      {{pikaday-input value=paidAt id="paid-at" }}
+      {{#each error in errors.paidAt}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+    </div>
+  </div>
+
+  <fieldset>
+    <legend>Related Company</legend>
+    <div class='row'>
+      <div class="small-4 columns end">
+        <label for="related-company-name">Client name</label>
+        {{input value=relatedCompanyName id='related-company-name'}}
+        {{#each error in errors.relatedCompanyName}}
+          <small class="error">{{error.message}}</small>
+        {{/each}}
+      </div>
+    </div>
+  </fieldset>
+
+  {{partial 'items'}}
+
+  <button type="submit">{{actionName}} ticket</button>
+</form>

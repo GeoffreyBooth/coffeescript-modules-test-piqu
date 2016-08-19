@@ -5,10 +5,11 @@ This is a test of an update to CoffeeScript that adds support for `import` and `
 Just one prerequisite: [Docker](https://www.docker.com/products/docker). We’re using an [ember-cli Docker image](https://github.com/danlynn/ember-cli) to contain the ancient version of Ember CLI used by this project, so that you don’t need to have it installed globally on your machine (along with its also-old version of Node.js). Once you have Docker installed (Mac users with [Homebrew Cask](https://caskroom.github.io/) can do `brew cask install docker`), from the root of this repo:
 
 ```sh
-docker-compose build
-docker-compose run --rm npm install
-docker-compose run --rm bower install
-docker-compose up piqu
+docker-compose build piqu-updated
+docker-compose run --rm npm-updated install
+docker-compose run --rm bower-updated install
+docker-compose up piqu-updated
+# To run the original piqu, replace `updated` with `original` in the commands above
 ```
 
-Once you see the message that the Ember server has started up, if you go to http://localhost:4200/ in a browser, you should see a webpage with a heading “Welcome to Piqu”. If you look in the browser console, besides some debugging messages the only error should be a 404 about `favicon.ico`.
+Once you see the message that the Ember server has started up, if you go to http://localhost:4200/ in a browser, you should see a webpage with a heading “Welcome to Piqu”. The browser console should have no errors.

@@ -1,0 +1,15 @@
+import DS from 'ember-data'
+
+export default DS.Model.extend
+  title:         DS.attr 'string'
+  incomeBase:    DS.attr 'number'
+  expensesBase:  DS.attr 'number'
+  incomeVat:     DS.attr 'number'
+  expensesVat:   DS.attr 'number'
+  incomeIrpf:    DS.attr 'number'
+  expensesIrpf:  DS.attr 'number'
+  incomeTotal:   DS.attr 'number'
+  expensesTotal: DS.attr 'number'
+  totalBase:     DS.attr 'number'
+  totalVat:      DS.attr 'number'
+  totalTotal:    DS.attr 'number'
