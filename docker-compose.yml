@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  piqu: &defaults
+    image: piqu:latest
+    build:
+      context: .
+    volumes:
+      - ./piqu-ember:/myapp
+    ports:
+      - "4200:4200"
+      - "35729:35729"
+
+
+  npm:
+    <<: *defaults
+    entrypoint: ['/usr/local/bin/npm']
+
+  bower:
+    <<: *defaults
+    entrypoint: ['/usr/local/bin/bower', '--allow-root']
+
+  server:
+    <<: *defaults
+    command: server --watcher polling
+    ports:
+      - "4200:4200"
+      - "35729:35729"
