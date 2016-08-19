@@ -1,0 +1,84 @@
+<h1>Configuration</h1>
+
+<div data-alert></div>
+
+{{#if isNew}}
+  <div data-alert="" class="alert-box info">
+    You need to fill in basic info before continue using the application.
+  </div>
+{{/if}}
+
+{{#if errors.messages}}
+  <div data-alert="" class="alert-box alert">
+    {{errors.messages.length}} errors prohibited the configuration from being saved
+    <a href="#" class="close">&times;</a>
+  </div>
+{{/if}}
+
+<div class="row">
+  <form class="small-6 columns" {{action 'commit' on='submit'}}>
+    <label for="name">
+      <abbr title="required">*</abbr>
+      Company name
+    </label>
+    {{input value=name id='name'}}
+    {{#each error in errors.name}}
+      <small class="error">{{error.message}}</small>
+    {{/each}}
+
+    <label for="tax-id">
+      <abbr title="required">*</abbr>
+      Nif
+    </label>
+    {{input value=taxId id='tax-id'}}
+    {{#each error in errors.taxId}}
+      <small class="error">{{error.message}}</small>
+    {{/each}}
+
+    <label for="phone">
+      Telephone
+    </label>
+    {{input value=phone id='phone'}}
+    {{#each error in errors.phone}}
+      <small class="error">{{error.message}}</small>
+    {{/each}}
+
+    <label for="address">
+      <abbr title="required">*</abbr>
+      Address
+    </label>
+    {{input value=address id='address'}}
+    {{#each error in errors.address}}
+      <small class="error">{{error.message}}</small>
+    {{/each}}
+
+    <label for="zip-code">
+      <abbr title="required">*</abbr>
+      Zip code
+    </label>
+    {{input value=zipCode id='zip-code'}}
+    {{#each error in errors.zipCode}}
+      <small class="error">{{error.message}}</small>
+    {{/each}}
+
+    <label for="tax-city">
+      <abbr title="required">*</abbr>
+      City
+    </label>
+    {{input value=city id='city'}}
+    {{#each error in errors.city}}
+      <small class="error">{{error.message}}</small>
+    {{/each}}
+
+    <label for="country">
+      <abbr title="required">*</abbr>
+      country
+    </label>
+    {{input value=country id='country'}}
+    {{#each error in errors.country}}
+      <small class="error">{{error.message}}</small>
+    {{/each}}
+
+    <button type="submit">Save</button>
+  </form>
+</div>

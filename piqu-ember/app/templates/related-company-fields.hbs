@@ -1,0 +1,64 @@
+<fieldset>
+  <legend>Related Company</legend>
+  {{#if relatedCompanyMissing}}
+    <div class='alert-box alert'>
+      Please, chose a company or create a new one
+    </div>
+  {{/if}}
+  <div class="row" id="select-company">
+    <div class="small-4 columns">
+      <label for="related-company">Related company</label>
+      <select id="related-company" required>
+        <option disabled>Select a company</option>
+        {{#each company in relatedCompanies}}
+          {{#unless company.isNew}}
+            <option {{bind-attr value=company.id}}>{{company.name}}</option>
+          {{/unless}}
+        {{/each}}
+      </select>
+    </div>
+    <div class="small-2 columns end">
+      <button {{action 'newRelatedCompany'}} class="small" id="new-company-button">New company</button>
+    </div>
+  </div>
+  <div class="row hide" id="new-company">
+    <div class="small-6 columns">
+      <label for="related-company-name">Name</label>
+      {{input value=newCompany.name id="related-company-name"}}
+      {{#each error in newCompany.errors.name}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+
+      <label for="related-company-tax-id">Nif</label>
+      {{input value=newCompany.taxId id="related-company-tax-id"}}
+      {{#each error in newCompany.errors.taxId}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+
+      <label for="related-company-address">Address</label>
+      {{input value=newCompany.address id="related-company-address"}}
+      {{#each error in newCompany.errors.address}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+
+      <label for="related-company-city">City</label>
+      {{input value=newCompany.city id="related-company-city"}}
+      {{#each error in newCompany.errors.city}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+
+      <label for="related-company-country">Country</label>
+      {{input value=newCompany.country id="related-company-country"}}
+      {{#each error in newCompany.errors.country}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+
+      <label for="related-company-phone">Telephone</label>
+      {{input value=newCompany.phone id="related-company-phone"}}
+      {{#each error in newCompany.errors.phone}}
+        <small class="error">{{error.message}}</small>
+      {{/each}}
+    </div>
+    <button class="small" {{action 'cancelNewCompany'}}>Cancel</button>
+  </div>
+</fieldset>

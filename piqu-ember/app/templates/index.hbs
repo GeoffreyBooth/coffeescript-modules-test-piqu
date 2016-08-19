@@ -1,0 +1,97 @@
+<div class="row sub-header">
+  <div class="small-12 columns">
+    <h1>{{title}}</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-2 columns">
+    {{view "select" content=years value=year}}
+    {{view "select" content=quarters value=quarter}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-4 columns">
+    <div class="panel">
+      <h2 class="text-center">Income</h2>
+
+      <div class="balance-result text-center">
+        {{incomeBase}}
+      </div>
+
+      <hr>
+
+      <div class="balance-parials">
+        <ul>
+          <li>
+            <strong>VAT:</strong>
+            {{incomeVat}}
+          </li>
+          <li>
+            <strong>IRPF:</strong>
+            {{incomeIrpf}}
+          </li>
+          <li>
+            <strong>TOTAL:</strong>
+            {{incomeTotal}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="small-4 columns">
+    <div class="panel">
+      <h2 class="text-center">Expenses</h2>
+
+      <div class="balance-result text-center">
+        {{expensesBase}}
+      </div>
+
+      <hr>
+
+      <div class="balance-parials">
+        <ul>
+          <li>
+            <strong>VAT:</strong>
+            {{expensesVat}}
+          </li>
+          <li>
+            <strong>IRPF:</strong>
+            {{expensesIrpf}}
+          </li>
+          <li>
+            <strong>TOTAL:</strong>
+            {{expensesTotal}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="small-4 columns">
+    <div class="panel">
+      <h2 class="text-center">Result</h2>
+
+      <div class="balance-result text-center">
+        {{totalBase}}
+      </div>
+
+      <hr>
+
+      <div class="balance-parials">
+        <ul>
+          <li>
+            <strong>VAT:</strong>
+            {{totalVat}}
+          </li>
+          <li>
+            <strong>TOTAL:</strong>
+            {{totalTotal}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
