@@ -1,0 +1,1 @@
+This is a test of an update to CoffeeScript that adds support for `import` and `export` statements.
