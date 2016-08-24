@@ -38,6 +38,10 @@ services:
       - "35729:35729"
 
 
+  bash-updated:
+    <<: *updated
+    entrypoint: ['/bin/bash']
+
   npm-updated:
     <<: *updated
     entrypoint: ['/usr/local/bin/npm']
